@@ -83,7 +83,7 @@ In typical usage, there are two methods to the `dpMean` class. The `new` method,
 
 The `release` method accepts a single argument. 
 
-* `x` \ Data frame containing numeric columns corresponding the names specified in `variable`.
+* `x` \ Data frame containing numeric, logical, or integer-value columns corresponding the names specified in `variable` and the variable type specified in `var-type`.
 
 
 Examples
