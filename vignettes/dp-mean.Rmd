@@ -36,6 +36,7 @@ Syntax
 ------
 
 ```{r, eval = FALSE}
+library(PSIlence)
 x1 <- c(3, 12, 20, 42, 33, 65, 70, 54, 33, 45)
 x2 <- c(TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE)
 data <- data.frame(x1, x2)
