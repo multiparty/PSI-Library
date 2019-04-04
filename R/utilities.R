@@ -285,7 +285,7 @@ checkepsilon <- function(epsilon) {
 		stop("Privacy parameter epsilon must be a value greater than zero.")
 	}
 	if (length(epsilon) > 1) {
-		stop(paste("Privacy parameter epsilon must be a single value, but is currently a vector of length ", length(epsilon)))
+		stop(paste("Privacy parameter epsilon must be a single value, but is currently a vector of length", length(epsilon)))
 	}
 	return(epsilon)
 }
@@ -299,6 +299,7 @@ checkepsilon <- function(epsilon) {
 #'
 #' @param x A vector of numeric or categorial values to censor.
 #' @param var_type Character indicating the variable type of \code{x}.
+#'    Possible values include: numeric, logical, ...
 #' @param rng For numeric vectors, a vector (min, max) of the bounds of the 
 #'    range. For numeric matrices with nrow N and ncol P, a Px2 matrix of 
 #'    (min, max) bounds.
@@ -543,6 +544,8 @@ linear.reg <- function(formula, release, n, intercept) {
 
 #' Moore Penrose Inverse Function ###Must assign authorship to this###
 #' 
+#' @cite Gill, Jeff, and Gary King. "What to do when your Hessian is not invertible: Alternatives to model respecification in nonlinear estimation." Sociological methods & research 33, no. 1 (2004): 54-87.
+#' 
 #' Generate the Moore-Penrose pseudoinverse matrix of \code{X}.
 #' 
 #' @param X A numeric, symmetric covariance matrix.
@@ -559,7 +562,14 @@ mpinv <- function(X, tol = sqrt(.Machine$double.eps)) {
 }
 
 
-#' Sweep operator ###Check if we need to assign authorship to this###
+#' Sweep operator
+#' 
+#' General sweep operator citation:
+#' @cite Goodnight, James H. "A tutorial on the SWEEP operator." The American Statistician 33, no. 3 (1979): 149-158.
+#' This implementation is from pseudocode from:
+#' @cite Schafer, Joseph L. Analysis of incomplete multivariate data. Chapman and Hall/CRC, 1997.
+#' Code ported from:
+#' @cite Honaker, James, Gary King, and Matthew Blackwell. "Amelia II: A program for missing data." Journal of statistical software 45, no. 7 (2011): 1-47.
 #' 
 #' Sweeps a covariance matrix to extract regression coefficients.
 #' 
